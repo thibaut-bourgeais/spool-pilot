@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "spool-pilot"
+version = "0.1.0"
+description = ""
+authors = ["Thibaut Bourgeais <thibautbourgeais@yahoo.com"]
+package-mode = false
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+fastapi = "^0.115.12"
+uvicorn = "^0.34.3"
+aiofiles = "^24.1.0"
+jinja2 = "^3.1.6"
+python-multipart = "^0.0.20"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+

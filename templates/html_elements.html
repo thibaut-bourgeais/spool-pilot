@@ -1,0 +1,65 @@
+2 pos switch
+
+<div class="btn-group mb-3" role="group" aria-label="Toggle option">
+    <input type="radio" class="btn-check" name="modeToggle" id="load_NAS" value="A" autocomplete="off" checked>
+    <label class="btn btn-outline-primary" for="load_NAS">Upload here</label>
+  
+    <input type="radio" class="btn-check" name="modeToggle" id="load_here" value="B" autocomplete="off">
+    <label class="btn btn-outline-primary" for="load_here">Already loaded</label>
+</div>
+
+
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">➕ New print</h5>
+        <div class="col-md-3 d-flex align-items-end">
+            <button id="load_gcode" type="submit" class="btn btn-primary">Load a gcode file</button>
+        </div>
+
+
+
+
+
+
+        <form method="post" action="/add_print">
+            <div style="margin-top:1em;" class="row g-3">
+                <div class="col-md-2">
+                    <label for="filament" class="form-label">Filament</label>
+                    <input type="text" id="filament" name="filament" class="form-control" placeholder="PLA, PETG..." required>
+                </div>
+            
+                <div class="col-md-4">
+                    <label for="printer" class="form-label">Printer</label>
+                    <select name="printer" id="printer" class="form-select" required>
+                        <option value="X1C-1">X1Carbon Top (AMS)</option>
+                        <option value="X1C-2">X1Carbon Bottom</option>
+                    </select>
+                </div>
+            
+                <div class="col-md-4">
+                    <label for="filename" class="form-label">File to print</label>
+                    <select name="filename" id="filename" class="form-select" required>
+                        <!-- fichiers dynamiques ici -->
+                    </select>
+                </div>
+            
+                <div class="col-md-2">
+                    <label for="duration" class="form-label">Estimated duration</label>
+                    <input type="number" id="duration" name="duration_min" class="form-control" placeholder="min" required>
+                </div>
+            
+                <div class="col-md-2 d-flex align-items-end">
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="priority">
+                        <label class="form-check-label" for="priority">High priority</label>
+                    </div>
+                </div>
+            
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary">Add task</button>
+                </div>
+            </div>                    
+        </form>
+    </div>
+</div>
