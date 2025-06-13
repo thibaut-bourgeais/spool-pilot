@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body class="">
+    <div class="form-check form-switch float-end" style="margin:1.5em;">
+        <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+        <label class="form-check-label" for="darkModeSwitch">🌙 Dark Mode</label>
+    </div>
+    <h1 class="mb-4 col-md-9" id="website-title"><img src="../medias/spoolpilotLogo.png" style="height: 2em;"/> SpoolPilot</h1>
+
     <ul class="nav nav-tabs mb-4" id="spoolpilotTabs" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="tab-dashboard" data-bs-toggle="tab" data-bs-target="#dashboard" type="button" role="tab">Dashboard</button>
@@ -32,17 +38,13 @@
         </li>
     </ul>
       
-    <div class="form-check form-switch float-end" style="margin:1.5em;">
-        <input class="form-check-input" type="checkbox" id="darkModeSwitch">
-        <label class="form-check-label" for="darkModeSwitch">🌙 Dark Mode</label>
-    </div>
     
     <div class="tab-content" id="spoolpilotTabsContent">
         <div class="container py-4 tab-pane fade show active" id="dashboard" role="tabpanel">
-            <h1 class="mb-4 col-md-9">🎛️ SpoolPilot - Dashboard</h1>
 
             <div class="mb-4 col-md-8">
                 <div class="card-body">
+                    <h3 class="mb-4 col-md-9">🧭 Dashboard</h3>
                     <div class="row g-3">
                         <div class="col-md-4">
                             <label for="user" class="form-label">Username</label>
@@ -145,13 +147,30 @@
             </table>
         </div>
         <div class="container py-4 tab-pane fade" id="printers" role="tabpanel">
-            <p>Printer status, AMS state, etc.</p>
+            <div class="mb-4 col-md-8">
+                <div class="card-body">
+                    <h3 class="mb-4 col-md-9">🖨 Printer(s)</h3>
+                    <p>Printer status, AMS state, etc.</p>
+                </div>
+            </div>
+        </div>
+            
         </div>
         <div class="container py-4 tab-pane fade" id="history" role="tabpanel">
-            <p>Print logs and export options</p>
+            <div class="mb-4 col-md-8">
+                <div class="card-body">
+                    <h3 class="mb-4 col-md-9">⏳ History</h3>
+                    <p>Print logs and export options</p>
+                </div>
+            </div>
         </div>
         <div class="container py-4 tab-pane fade" id="stats" role="tabpanel">
-            <p>Charts and print metrics</p>
+            <div class="mb-4 col-md-8">
+                <div class="card-body">
+                    <h3 class="mb-4 col-md-9">📊 Statistics</h3>
+                    <p>Charts and print metrics</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

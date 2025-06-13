@@ -1,8 +1,12 @@
 * {
-    transition: 0.5s ease;
+    transition: 0.3s ease;
 }
 
 .image-carousel {
-    max-height: 300px;
+    max-height: 30%;
     object-fit: contain;
+}
+
+#website-title {
+    margin: 1em;
 }
