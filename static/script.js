@@ -1,23 +1,73 @@
-// Persistence for tabs
-document.addEventListener("DOMContentLoaded", () => {
-    const tabElms = document.querySelectorAll('button[data-bs-toggle="tab"]');
-    const lastTabId = localStorage.getItem("activeTab");
-  
-    // Activer le dernier onglet connu (si trouvé)
-    if (lastTabId) {
-      const triggerEl = document.querySelector(`button[data-bs-target="${lastTabId}"]`);
-      if (triggerEl) {
-        const tab = new bootstrap.Tab(triggerEl);
-        tab.show();
-      }
-    }
-  
-    // Sauvegarder chaque clic sur un onglet
-    tabElms.forEach(el => {
-      el.addEventListener("shown.bs.tab", (e) => {
-        localStorage.setItem("activeTab", e.target.getAttribute("data-bs-target"));
+// gcode lister
+function populatePreview() {
+  const container = document.getElementById("filePreviewContainer");
+
+  // Avoid duplicates
+  container.innerHTML = "";
+
+  fetch("/available_files")
+    .then(res => res.json())
+    .then(data => {
+      console.log("Fetching .3mf list...");
+      data.files.forEach(file => {
+        file = file.replace(/\.3mf$/i, '');
+        const col = document.createElement("div");
+        col.classList.add("col-md-3", "mb-4");
+
+        col.innerHTML = `
+          <div class="card h-50 shadow-sm">
+            <img src="/thumbnail/${file}" class="card-img-top" alt="${file}" style="object-fit: contain; max-height: 200px; max-width: 100%;">
+            <div class="card-body">
+              <h6 class="card-title text-center text-truncate" title="${file}">${file}</h6>
+              <button class="btn btn-outline-primary btn-sm w-50 mt-2" onclick="selectFile('${file}')">Add to queue</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(col);
       });
+      console.log("Files found :", data.files);
     });
+}
+
+//Dropzone
+Dropzone.autoDiscover = false;
+new Dropzone("#gcode-dropzone", {
+    acceptedFiles: ".3mf",
+    maxFilesize: 2000000,
+    uploadMultiple: true
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log(document.getElementById("filePreviewContainer"));
+  
+  // Persistence for tabs
+  const tabElms = document.querySelectorAll('button[data-bs-toggle="tab"]');
+  const lastTabId = localStorage.getItem("activeTab");
+
+  // Activate last openned (saved) tab
+  if (lastTabId) {
+    const triggerEl = document.querySelector(`button[data-bs-target="${lastTabId}"]`);
+    if (triggerEl) {
+      const tab = new bootstrap.Tab(triggerEl);
+      tab.show();
+    }
+  }
+
+  // Save state at every click on a tab
+  tabElms.forEach(el => {
+    el.addEventListener("shown.bs.tab", (e) => {
+      localStorage.setItem("activeTab", e.target.getAttribute("data-bs-target"));
+    });
+  });
+  
+  // Add a listener for the tabs
+  document.querySelector('#tab-dashboard').addEventListener('shown.bs.tab', () => {
+    populatePreview();
+  });
+  // Trigger the preview now if already active
+  if (document.querySelector('#tab-dashboard').classList.contains('active')) {
+    populatePreview();
+  }
   });
 
   
@@ -59,12 +109,8 @@ switchToggle.addEventListener('change', () => {
     localStorage.setItem('dark-mode', darkTheme);
 });
 
-
-
-//Dropzone
-Dropzone.autoDiscover = false;
-new Dropzone("#gcode-dropzone", {
-    acceptedFiles: ".3mf",
-    maxFilesize: 2000000,
-    uploadMultiple: true
-});
+// Used when we click on "use this"
+function selectFile(filename) {
+  const input = document.getElementById("filename");
+  if (input) input.value = filename;
+}

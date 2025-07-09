@@ -2,8 +2,7 @@ from fastapi import FastAPI, Request, Form, UploadFile, File
 from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
-from typing import List, Optional
+from typing import List
 from datetime import datetime
 import os
 import zipfile
@@ -11,6 +10,9 @@ import zipfile
 from queue_manager import Queue_manager
 from log_manager import Log_manager
 
+# Folders
+THUMB_DIR = "static/thumbs"
+os.makedirs(THUMB_DIR, exist_ok=True)
 
 # Define file managers
 queue_manager = Queue_manager()
@@ -25,7 +27,8 @@ templates = Jinja2Templates(directory="templates")
 def dashboard(request: Request):
     
     queue = queue_manager.load_queue()
-    return templates.TemplateResponse("dashboard.html", {"request": request, "queue": queue})
+    return templates.TemplateResponse("main.html", {"request": request, "queue": queue})
+
 
 
 @app.post("/add_print")
@@ -89,6 +92,22 @@ def list_3mf():
 
 @app.get("/thumbnail/{filename}")
 def get_thumbnail(filename: str):
-    with zipfile.ZipFile(f"print_files/{filename}") as zf:
-        zf.extract("thumbnail.png", path="/tmp/thumbs")
-    return FileResponse("/tmp/thumbs/thumbnail.png")
+    path = f"print_files/{filename}"
+    output = os.path.join("static/thumbs", f"{filename}_thumbnail.png")
+
+    if not os.path.isfile(path):
+        raise HTTPException(status_code=404, detail="File not found")
+
+    try:
+        with zipfile.ZipFile(path) as zf:
+            for name in zf.namelist():
+                print("Content found in .3mf:", name)
+                if name.lower().endswith(".png") and "plate" in name.lower():
+                    with open(output, "wb") as out:
+                        out.write(zf.read(name))
+                    return FileResponse(output)
+    except Exception as e:
+        print(f"❌ ZIP ERROR: {e}")
+    
+    print("⚠️ No extracted image, fallback")
+    return FileResponse("static/default_thumbnail.png")

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+  <!--ellipse cx="47" cy="50" rx="7" ry="16" stroke="#2b2b2b" fill="#2b2b2b" stroke-width="5"/-->
+  <rect x="43" y="30" width="14" height="40" rx="5" ry="20" class="spool-cylender" fill="#4d4d4d"/>
+  <ellipse cx="48" cy="50" rx="5" ry="20" class="spool-flange" fill="#3a3a3a"/>
+  
+  <rect x="28" y="35" width="22" height="30" rx="3.5" ry="15" id="filament-body" class="filament" fill="#FF66AA"/>
+
+  <rect x="22" y="30" width="14" height="40" rx="5" ry="20"  fill="#4d4d4d"/>
+  <ellipse cx="27" cy="50" rx="5" ry="20" class="spool-cylender" fill="#3a3a3a"/>
+  <ellipse cx="27" cy="50" rx="1.5" ry="8" class="spool-flange" fill="#1f1f1f"/>
+</svg>
