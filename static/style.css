@@ -16,7 +16,100 @@
 }
 
 
-/*Stock style*/
+/*Carroussel*/
+.progress {
+  height: 2em
+}
+
+.progress > .progress-bar {
+  border-radius: 5px;
+}
+
+.progress > strong {
+  margin:0.25em;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter:invert(0.5);
+}
+
+
+/*Queue table*/
+.scrollable-table {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.scrollable-table thead,
+.scrollable-table tbody,
+.scrollable-table tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.scrollable-table tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.scrollable-table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/*upload zone*/
+#upload-button {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.75em;
+}
+
+#refresh-button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.75em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+#filePreviewContainer {
+  max-height: 500px;        /* ou ajuste selon ta hauteur visuelle */
+  overflow-y: auto;
+  padding-right: 0.5rem;    /* espace pour la scrollbar */
+}
+
+#filePreviewContainer::-webkit-scrollbar {
+  width: 8px;
+}
+#filePreviewContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.file-card {
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.file-checkbox {
+  pointer-events: none; /* évite d'empêcher le clic global sur le label */
+}
+
+.file-card.checked {
+  background-color: #0d6efd !important; /* Bootstrap primary */
+  color: white;
+  border: 2px solid #0a58ca;
+}
+
+
+
+
+/*Stock tab*/
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -24,35 +117,63 @@
     font-family: sans-serif;
   }
   
-  .bento-item {
-    background: #2b2b2b;
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0.8rem;
-    position: relative;
-  }
-  
-  .bento-item.size-2x1 {
-    grid-column: span 2;
-  }
-  
-  .bento-item .color-dot {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    margin-right: 4px;
-  }
-  
-  .bento-item .btn-sm {
-    padding: 0.2rem 0.6rem;
-    border: none;
-    background: #444;
-    color: white;
-    border-radius: 4px;
-  }
-  
-  .bento-item .btn-sm.delete {
-    background: #922;
-  }
-  
+.bento-item {
+  background: #2b2b2b;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 160px; /* ajuste si besoin */
+}
+
+.bento-item .action-buttons {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.bento-item .btn-sm {
+  padding: 0.2rem 0.6rem;
+  border: none;
+  background: #444;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.bento-item .btn-sm.delete {
+  background: #922;
+}
+
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background-color: var(--bs-primary);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.fab:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.02);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}

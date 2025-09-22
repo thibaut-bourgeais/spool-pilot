@@ -1,38 +1,79 @@
 <div class="mb-4 col-md-8">
-    <div class="card-body">
-        <h3 class="mb-4 col-md-9">📦 Stock</h3>
-    </div>
+  <div class="card-body">
+    <h3 class="mb-4 col-md-9">📦 Stock</h3>
+  </div>
 </div>
 
+<!-- Button add an item -->
+<button
+  type="button"
+  class="btn btn-primary fab"
+  data-bs-toggle="modal"
+  data-bs-target="#addAnItemModal"
+  id="fab-add"
+>
+  <i class="bi bi-plus-lg"></i>
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="addAnItemModal"
+  tabindex="-1"
+  aria-labelledby="add-an-item-modal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="add-an-item-modal">
+          Add an item to the stock
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Tout plein de trucs a faire ici</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="bento-grid">
+  <div class="bento-item size-2x1">
+    <div style="font-weight: bold; font-size: 1.1rem">🧵 PLA</div>
+    <div style="margin: 0.5rem 0">
+      <span class="color-dot" style="background: red"></span>
+      <span class="color-dot" style="background: green"></span>
+      <span class="color-dot" style="background: blue"></span>
+    </div>
+    <div style="font-size: 0.9rem">3 spools — 2.1 kg total</div>
 
-    <!-- Bobine PLA -->
-    <div class="bento-item size-2x1">
-      <div style="font-weight: bold; font-size: 1.1rem;">🧵 PLA</div>
-      <div style="margin: 0.5rem 0;">
-        <span class="color-dot" style="background:red;"></span>
-        <span class="color-dot" style="background:green;"></span>
-        <span class="color-dot" style="background:blue;"></span>
-      </div>
-      <div style="font-size: 0.9rem;">3 bobines — 2.1 kg total</div>
-      <div style="margin-top: 0.5rem;">
-        <button class="btn-sm">+</button>
-        <button class="btn-sm">−</button>
-        <button class="btn-sm delete">🗑️</button>
-      </div>
+    <div class="action-buttons">
+      <button class="btn-sm"><i class="bi bi-plus-circle"></i></button>
+      <button class="btn-sm"><i class="bi bi-dash-circle"></i></button>
+      <button class="btn-sm delete"><i class="bi bi-trash-fill"></i></button>
     </div>
-  
-    <!-- Nozzle -->
-    <div class="bento-item">
-      <div style="font-weight: bold;">🔧 Nozzle</div>
-      <div style="font-size: 0.9rem; margin: 0.5rem 0;">5 en stock</div>
-      <div>
-        <button class="btn-sm">+</button>
-        <button class="btn-sm">−</button>
-        <button class="btn-sm delete">🗑️</button>
-      </div>
-    </div>
-  
   </div>
-  
+
+  <div class="bento-item">
+    <div style="font-weight: bold">🔧 Nozzle</div>
+    <div style="font-size: 0.9rem; margin: 0.5rem 0">5 in stock</div>
+    <div class="action-buttons">
+      <button class="btn-sm"><i class="bi bi-plus-circle"></i></button>
+      <button class="btn-sm"><i class="bi bi-dash-circle"></i></button>
+      <button class="btn-sm delete"><i class="bi bi-trash-fill"></i></button>
+    </div>
+  </div>
+</div>
+<script src="/static/stock_script.js" defer></script>
+<!-- Again insert here to be sure everything is loaded -->
+<div onload="populateStock()"></div>

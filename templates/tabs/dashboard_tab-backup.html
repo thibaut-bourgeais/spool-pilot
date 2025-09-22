@@ -1,0 +1,95 @@
+<div class="mb-4 col-md-8">
+    <div class="card-body">
+        <h3 class="mb-4 col-md-9">🧭 Dashboard</h3>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Carrousel -->
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">🚧 Current jobs</h5>
+                <div id="printingCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+
+                    <div class="carousel-inner custom-height">
+                        <div class="carousel-item active">
+                            <img src="/static/image1.png" class="d-block w-100 image-carousel" alt="In progress">
+                            <div class="card-body bg-light-subtle">
+                                <h5 class="card-title">🏷 Name of the file</h5>
+                                <ul class="list-unstyled mb-0">
+                                <li><strong>🖨️ X1C-Top (AMS)</li>
+                                <li><strong>⏳ Remaining:</strong> 2h 45m</li>
+                                <li><strong>🧵 Filament:</strong> PLA Matte Black</li>
+                                <li><strong>📦 In queue:</strong> 3 jobs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/static/image2.png" class="d-block w-100 image-carousel" alt="In progress">
+                            <div class="card-body bg-light-subtle">
+                                <h5 class="card-title">🏷 Second file</h5>
+                                <ul class="list-unstyled mb-0">
+                                <li><strong>🖨️ X1C-Bottom</li>
+                                <li><strong>⏳ Remaining:</strong> 2h 45m</li>
+                                <li><strong>🧵 Filament:</strong> PLA Matte White</li>
+                                <li><strong>📦 In queue:</strong> 3 jobs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#printingCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#printingCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Queue -->
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4>🕒 Current queue</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>File</th>
+                            <th>Duration</th>
+                            <th>User</th>
+                            <th>Printer</th>
+                            <th>Filament(s)</th>
+                            <th>Priority</th>
+                            <th>Submitted at </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for job in queue %}
+                        <tr>
+                            <td>{{ job.filename }}</td>
+                            <td>{{ job.duration_min }} min</td>
+                            <td>{{ job.user }}</td>
+                            <td>{{ job.printer }}</td>
+                            <td>{{ job.filament }}</td>
+                            <td>{% if job.priority %}✅{% else %}—{% endif %}</td>
+                            <td>{{ job.submitted_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- dropzone -->
+<h5 class="card-title">➕ New print</h5>
+<form method="post" action="/uploadfile" class="dropzone" id="gcode-dropzone" style="border-radius: .5em; margin-bottom:1em;">
+</form>
+<div class="row" id="filePreviewContainer">
+</div>

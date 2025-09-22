@@ -1,5 +1,5 @@
 // gcode lister
-function populatePreview() {
+async function populatePreview() {
   const container = document.getElementById("filePreviewContainer");
 
   // Avoid duplicates
@@ -8,34 +8,61 @@ function populatePreview() {
   fetch("/available_files")
     .then(res => res.json())
     .then(data => {
-      console.log("Fetching .3mf list...");
-      data.files.forEach(file => {
-        file = file.replace(/\.3mf$/i, '');
+      //console.log("Fetching .3mf list...");
+      data.files.forEach((file, index) => {
+        fileRenamed = file.replace(/\.3mf$/i, '');
         const col = document.createElement("div");
         col.classList.add("col-md-3", "mb-4");
 
+        const checkboxId = `checkbox-${index}`;
+
         col.innerHTML = `
-          <div class="card h-50 shadow-sm">
+          <div class="card shadow-sm bg-light-subtle file-card position-relative" data-index="${index}">
+            <input type="checkbox" id="${checkboxId}" class="form-check-input file-checkbox position-absolute top-0 start-0 m-2" />
             <img src="/thumbnail/${file}" class="card-img-top" alt="${file}" style="object-fit: contain; max-height: 200px; max-width: 100%;">
-            <div class="card-body">
-              <h6 class="card-title text-center text-truncate" title="${file}">${file}</h6>
-              <button class="btn btn-outline-primary btn-sm w-50 mt-2" onclick="selectFile('${file}')">Add to queue</button>
-            </div>
+            <h6 class="card-title text-center text-truncate" title="${fileRenamed}">${fileRenamed}</h6>
           </div>
         `;
+
         container.appendChild(col);
       });
-      console.log("Files found :", data.files);
+
+      document.querySelectorAll('.file-card').forEach(card => {
+        const checkbox = card.querySelector('.file-checkbox');
+      
+        // Clic sur la carte
+        card.addEventListener('click', (e) => {
+          if (!e.target.classList.contains('file-checkbox')) {
+            checkbox.checked = !checkbox.checked;
+            card.classList.toggle('checked', checkbox.checked);
+            updateAddButtonState();
+          }
+        });
+      
+        // Clic direct sur la checkbox
+        checkbox.addEventListener('change', () => {
+          card.classList.toggle('checked', checkbox.checked);
+          updateAddButtonState();
+        });
+      });
+      
+
+      updateAddButtonState();
+
+      //console.log("Files found :", data.files);
     });
 }
 
-//Dropzone
-Dropzone.autoDiscover = false;
-new Dropzone("#gcode-dropzone", {
-    acceptedFiles: ".3mf",
-    maxFilesize: 2000000,
-    uploadMultiple: true
+document.getElementById("refresh-button").addEventListener("click", async () => {
+  await populatePreview();
 });
+
+function updateAddButtonState() {
+  const anyChecked = document.querySelectorAll('.file-checkbox:checked').length > 0;
+  document.getElementById('add-to-queue-button').disabled = !anyChecked;
+}
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log(document.getElementById("filePreviewContainer"));
