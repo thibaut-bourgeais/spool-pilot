@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SpoolPilot - Orders</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13b6ec",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200">
+<div class="flex min-h-screen">
+<aside class="w-20 bg-background-light dark:bg-background-dark border-r border-slate-200 dark:border-slate-800 flex flex-col items-center py-6 space-y-8">
+<div class="text-primary">
+<svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-12h2v2h-2v-2zm0 4h2v6h-2v-6z"></path>
+</svg>
+</div>
+<nav class="flex flex-col items-center space-y-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-3xl">view_agenda</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-3xl">print</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-3xl">inventory_2</span>
+</a>
+<a class="text-primary dark:text-primary" href="#">
+<span class="material-symbols-outlined text-3xl">shopping_cart</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-3xl">folder</span>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col">
+<header class="flex items-center justify-between px-10 py-4 border-b border-slate-200 dark:border-slate-800">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Orders</h1>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center h-10 px-4 bg-primary text-white rounded-lg font-semibold text-sm shadow-md hover:bg-primary/90 transition-colors">
+            New Order
+          </button>
+<button class="relative text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">3</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZJilkQkRrHtPB2oQGJU7yUkIxNgRstPciZNGjYHN0y995nd6AoY_twSS9u65TVljTmzXNlMAHnJmK1VA7sD-m9FAzbbtOPnjFx1iPDW4ocQHRmXhHkuYhAiRuImF_L-YY1CKXRdNovBrtCCDtW8s_D6_1nTXbGOg3EGvmrxaRCrIEBL3xSoYHpi1R8jo-lEWhtkfraRzbN_NfXHrfMatzPWtG2XhBdbb7yTgLuyijzM53ADW_7NDZByooHhx4Fq3oLmH4DdurHsQ");'></div>
+</div>
+</header>
+<main class="flex-1 p-8">
+<div class="bg-white dark:bg-slate-900/50 rounded-xl shadow-lg">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-500 dark:text-slate-400 uppercase bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 font-medium tracking-wider" scope="col">Requester</th>
+<th class="px-6 py-4 font-medium tracking-wider" scope="col">Description</th>
+<th class="px-6 py-4 font-medium tracking-wider text-center" scope="col">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900 dark:text-white">Liam Carter</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-600 dark:text-slate-300">Request for 1kg of PLA filament, color: matte black</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300">Pending</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900 dark:text-white">Sophia Bennett</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-600 dark:text-slate-300">Spare nozzle replacement for printer 2</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300">Ordered</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900 dark:text-white">Ethan Harper</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-600 dark:text-slate-300">Maintenance request for printer 1, calibration needed</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300">Received</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900 dark:text-white">Olivia Foster</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-600 dark:text-slate-300">Request for 500g of PETG filament, color: transparent</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300">Pending</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium text-slate-900 dark:text-white">Noah Parker</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-600 dark:text-slate-300">Replacement build plate for printer 3</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300">Ordered</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

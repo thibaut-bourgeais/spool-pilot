@@ -88,11 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // Add a listener for the tabs
-  document.querySelector('#tab-dashboard').addEventListener('shown.bs.tab', () => {
+  document.querySelector('#tab-overview').addEventListener('shown.bs.tab', () => {
     populatePreview();
   });
   // Trigger the preview now if already active
-  if (document.querySelector('#tab-dashboard').classList.contains('active')) {
+  if (document.querySelector('#tab-overview').classList.contains('active')) {
     populatePreview();
   }
   });

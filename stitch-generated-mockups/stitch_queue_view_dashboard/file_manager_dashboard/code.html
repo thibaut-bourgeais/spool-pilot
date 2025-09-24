@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SpoolPilot - File Manager</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen">
+<nav class="w-20 border-r border-gray-200 dark:border-gray-800 flex flex-col items-center py-6 gap-8">
+<div class="text-primary">
+<svg class="h-8 w-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="flex flex-col items-center gap-6">
+<a class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">
+              layers
+            </span>
+</a>
+<a class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">
+              print
+            </span>
+</a>
+<a class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">
+              inventory_2
+            </span>
+</a>
+<a class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">
+              shopping_cart
+            </span>
+</a>
+<a class="p-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">
+              folder
+            </span>
+</a>
+</div>
+</nav>
+<div class="flex-1 flex flex-col">
+<header class="flex h-20 items-center justify-between border-b border-gray-200 dark:border-gray-800 px-8">
+<h1 class="text-xl font-bold text-gray-900 dark:text-white">Upload &amp; File Manager</h1>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">
+                notifications
+              </span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCI8YeZY33LzUyecHUpQYzGWLAqix8EQk26D39SvZJmN-6ksGPRh9J7lOawJqoibqfRc_vG7sC5Wk_xr9uLPGkrzFPPhpgGGvKK_VzSg2TaXAotOjbrX_lXsU05UNByEDMQz_PuR8nWUumBxk9Oz194GGZeqHyZbp5YcSClgGS9CcSYJBZOzWgIKQgEUEVJYuY_Wc44z7zpBxp4VNpwo2Kh0hXuuPmNdUJaPSNgGdU4SHhYAZoYzYxLw33prv_2l2PpzcxpaEze5WI");'></div>
+</div>
+</header>
+<main class="flex-1 p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-3">
+<div class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-12 text-center">
+<span class="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500 mb-4">
+                cloud_upload
+              </span>
+<p class="text-lg font-bold text-gray-900 dark:text-white">Drag &amp; drop your .3mf files here</p>
+<p class="text-gray-500 dark:text-gray-400 my-2">or</p>
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+                Select Files on Server
+              </button>
+</div>
+</div>
+<div class="lg:col-span-3">
+<h2 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Available Models</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+<div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+<div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjWzMFMs7GCIlDh3PB4cMVtg87KxNXjJcBBlW7TgL1yKI6GKd9g0u_TTi264QrTaAnMtnWvfbCxgvB0mCE1dHjddO2Hpztz7MLQur1CSufsH-0BjhdTKjz2PivDf3jMkRN7veRgIbb6zt0v-FWgTQiIcddDv2PkTbUYR8YKEB9XxLLlTO2aWZZ_JFSoHCznF97PV3bJF2Utra_je22e6ei9wilL7miAoTweYR2xBpUuRmLnpDHKCdt3AUPJjhfADv5IYhaE647kWc");'></div>
+<div class="p-4">
+<p class="font-semibold text-gray-900 dark:text-white">Model A</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">PLA, 2h 30m</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+<div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXXxeoV5dEuz3xeYFPpOlpEzyHFfjk88vHI78z2REzyaTuxkfVCF8daDrIWtIUI38hYfSGgnDxAT-Q-J3--iVNGNuT769aZ5RTYDYufS5iw9EOgywfe_ufzZTghVverHNyu96q0GQck92EA4YIytDkwOmf8M5JzWCs8Rq2h89YiK_v28d3goZ9Wri--OlOPXbUtudr2aZn9GfDpr-sckVc76nu891tLK5kq4GLbCJLfZbXW64cIMy6izoqlwWfHgBlJJZzYWOZoRU");'></div>
+<div class="p-4">
+<p class="font-semibold text-gray-900 dark:text-white">Model B</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">ABS, 1h 45m</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+<div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEMvmjxPXffQi3-La23NcHk2cDzJDFRs4WsQg9nX2L1ZIOibMskMbE1xDAs9zVwugwNImDaiTdHQxI278YNo3vkruG5LiVZd3SppZX-bPdthA0og_RkBSGPJjSnEFGsNEOKBp9apAPC3nyM6P8mpoQKTMQgd1aiIuewXrgr0C_GFUCbA-LimhzlUKmNFNsUNNEF_eAy9EK9RLgqvneapubrdWGFdspDk-4O5xYvbCW9LZA1dqUHO2Fel4bgBU2PLDA3CMjNvkHQAE");'></div>
+<div class="p-4">
+<p class="font-semibold text-gray-900 dark:text-white">Model C</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">PETG, 3h 15m</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+<div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUEVr13yUaemLItlSneBVqOJQS-N1Lfrw0FDi7bXlRuxOSusm_ExKsAqTWne_bCYa3HW08RNC3SLI_fy1N0WbZSADjmpY6ObcpHFP8ZsYdyM4Xywm45VVcaGoA4K7xNZbEkQHsRikm3GXk2YgAO-wLtR03pz0VTGZt5xdorROlzrTtuInAvHXnS2cdRY12Biw8FJeJ96IgSG8A9auwBDvqzHWmpF0MMoJvCkzx_kMjpm96gSIKGbKyRIRwqZz_MdB2c4jEnG92m1M");'></div>
+<div class="p-4">
+<p class="font-semibold text-gray-900 dark:text-white">Model D</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">PLA, 2h 00m</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+<div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsvcpSv0-6ryteVzsuV4IpNOCLIraJPwQ32f59cGZ5LKH_87pxwf3gzm0gyWYDfDT6HGZBUCC9vsutBo0t4aJ85c34GR_NDynTiXjH-P62MRipeJa7ft6sn1zeWLZHTO3jhvXPwNOOv96B3o6CLKlYx_xRqMfjLQz5tf-x-CwkVXnaqLoMS6iEd5WuhJubLRCgVv217i6eCQZu6lVTHiXiGOE0uBdDirrk1jJ3DT1OvlvynM4E5AGpn0i8goM43V_GC0nJplk07RM");'></div>
+<div class="p-4">
+<p class="font-semibold text-gray-900 dark:text-white">Model E</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">ABS, 1h 30m</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+<div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB49OYZaewHPLtftt2GGpignDDubEnB45sPjJpys7BFsJK1g0B9_1FyuKg-aBF2NZU48wC_BdkjLhHGWZY73zBcLAo1MZuDMhEIHZSGukPdpvjZ5A-z-YuEYOB21j3E6oGBf7gqUFaYBp8RW4G6BRfUilLNkY87gnPo8UsSdtiK6zf0t-qV5I3Lknh7c96kzyGW-yFMoui-c_zbhHXSGdRGzlxSmXch_q8zevUUPE7kyYk19LqfxhUbW3I6vS9R-UHZ7cYt_4HEHMk");'></div>
+<div class="p-4">
+<p class="font-semibold text-gray-900 dark:text-white">Model F</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">PETG, 2h 45m</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

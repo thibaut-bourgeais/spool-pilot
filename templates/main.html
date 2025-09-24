@@ -73,6 +73,18 @@
       <li class="nav-item" role="presentation">
         <button
           class="nav-link active"
+          id="tab-overview"
+          data-bs-toggle="tab"
+          data-bs-target="#overview"
+          type="button"
+          role="tab"
+        >
+          Overview
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
           id="tab-dashboard"
           data-bs-toggle="tab"
           data-bs-target="#dashboard"
@@ -133,6 +145,13 @@
     </ul>
 
     <div class="tab-content" id="spoolpilotTabsContent">
+      <div
+        class="container py-4 tab-pane fade show active"
+        id="overview"
+        role="tabpanel"
+      >
+        {% include "tabs/overview_tab.html" %}
+      </div>
       <div
         class="container py-4 tab-pane fade show active"
         id="dashboard"

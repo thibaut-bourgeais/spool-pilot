@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SpoolPilot Overview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-gray-200/10 bg-background-light/80 px-10 backdrop-blur-sm dark:bg-background-dark/80">
+<div class="flex items-center gap-3">
+<svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+<h1 class="text-xl font-bold text-gray-900 dark:text-white">SpoolPilot</h1>
+</div>
+<nav class="hidden items-center gap-6 md:flex">
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">Queue</a>
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">Printers</a>
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">Stock</a>
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">Orders</a>
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">File Manager</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200/50 text-gray-600 hover:bg-primary/20 hover:text-primary dark:bg-gray-700/50 dark:text-gray-300 dark:hover:bg-primary/30 dark:hover:text-primary">
+<span class="material-symbols-outlined"> notifications </span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCv7TuxxPSOSnOrS_p4D9p6d8cCcWi36uh2iOHFrCcO-k_P2iDYnc87zElQdIP-SWc5XfDQp-7ViMPQrz6XTNR4O6figAsCbHVLbiZ5L5YwunJ4szPHQoCF6JknNEVDoNPqRzYWran6y_qQ_7CHJ0DGMj15ohbDouZh13E0KZyb_EBTFFuRWBSnmcOI-l0TYC-lcOn2ocyoGJqmwRsS5uRCBQQ6UFIUNLrXNShNuwKw-G_R6wktfH9vLxofdcXCMApBIhWJZ1XUIzg");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 py-8 sm:px-6 md:px-10">
+<div class="mx-auto max-w-7xl">
+<div class="mb-8 flex items-center justify-between">
+<h2 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Overview</h2>
+</div>
+<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+<div class="space-y-8">
+<div class="rounded-xl bg-white/50 p-6 shadow-sm ring-1 ring-inset ring-gray-900/5 dark:bg-black/10 dark:ring-white/10">
+<h3 class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Queue</h3>
+<div class="flex flex-col gap-4 sm:flex-row">
+<div class="flex-1">
+<p class="text-2xl font-bold text-primary">12 prints</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">in queue, est. 2h 30m remaining.</p>
+</div>
+<div class="h-40 flex-1 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlI3ygNwkTGP0rWNCwIunbJJd7h4Vtl36J3qWC_vu_GAPLuecEpzTQC_DCwq2ocl9wISyqunSgc6cNo8-Dd7gj7Kz0qO2ImaYN_CUnigwCRug9DsVeSm4hS9hz_7qIIvRLMeTCI-yP6Xv8w8dBFWB3omSF7oLiyhz2QbOWmkN4Of_YZbi3dVl8YoRtYtcwybD5YunZ4XI4mbjyru7jEnCumA_tMQHq2USwc0-pFKm17f-sO9aejY7uS-rL8C9E5BAMCyZmbCBjC-o");'></div>
+</div>
+</div>
+<div class="rounded-xl bg-white/50 p-6 shadow-sm ring-1 ring-inset ring-gray-900/5 dark:bg-black/10 dark:ring-white/10">
+<h3 class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Stock</h3>
+<div class="flex flex-col gap-4 sm:flex-row">
+<div class="flex-1">
+<p class="text-2xl font-bold text-primary">5 spools</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">in stock. 3 PLA, 2 ABS.</p>
+</div>
+<div class="h-40 flex-1 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjN2fbX3ooVZ_xcDVBBwtLGqLtqDn_kOZs79_6CeYERGVf5kYPPiEPYw46mDBL9oJ4B8ljKmOxiZAju-HrOoB9z8DumvpteIKl7ttdvPO7CeUNdBm3w1zg2NteHI3_s0UJibW3L4JwXYV9NNHdwX_5VRZ1Cr7_MTP72gmp-w84t_k7nwKBrDaG93EcCKyOgrKas3NM02KWZSL8ezFozT55h8VIsX3hh5UHP9VfaUy0XCW2d6wILLmg3xHdeoe4HRtO7i6FZcxuFLc");'></div>
+</div>
+</div>
+<div class="rounded-xl bg-white/50 p-6 shadow-sm ring-1 ring-inset ring-gray-900/5 dark:bg-black/10 dark:ring-white/10">
+<h3 class="mb-4 text-lg font-bold text-gray-900 dark:text-white">File Manager</h3>
+<div class="flex flex-col gap-4 sm:flex-row">
+<div class="flex-1">
+<p class="text-2xl font-bold text-primary">10 files</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">in the manager, total size 100MB.</p>
+</div>
+<div class="h-40 flex-1 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGff-EBoQCEtrqGORvKG2KOTgcCVKxKiTjGrAdjB8pkjERtNP9OD95qNgAC5LOEt5uaUcEkx1_e4JcMAnanzYZqgMX09WguYglxWYG_UcU-8jSyaIRpDbSNHyghTA6v6_fUfkrQWv2cf1LCu8AHXRUYT8NwOwMltlH-eJ22vndRyHO4cDyiwVFAPQdZP3qHexajF448lFPXRU7Nd8_yqPcuaxfQsNor1Cyb5D6QBxfh_4iV5ZGM22ZvjJ97-J-UwOrvdFFr4NXxzk");'></div>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="rounded-xl bg-white/50 p-6 shadow-sm ring-1 ring-inset ring-gray-900/5 dark:bg-black/10 dark:ring-white/10">
+<h3 class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Printers</h3>
+<div class="flex flex-col gap-4 sm:flex-row">
+<div class="flex-1">
+<p class="text-2xl font-bold text-primary">3 printers</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">online. 2 printing, 1 idle.</p>
+</div>
+<div class="h-40 flex-1 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2VRy6gWoBbP_Dbehr4RQmAqlIWGmTSyr2oyIBdtJBYsucnSLCZXghWu2uF_ayWjP9Qzb3s6U0AExTO0zst4KlwXu0qoLxJzJpLAfUVVl7uBoBBv1AdsmuJLhbiLUtv3aoLW6E3dQqZIEP5TB_HCkwgl75gCc1w5sF6sSS3WN2AI-3x56YT5OZ8z9clb9Z-z3lUCBgfCsayoWL-FhJ5d9XrmsctlnxUER-RK6WSGnofaq6pR0eX-UevIicfpCkb-Qbt_NcNCKvROU");'></div>
+</div>
+</div>
+<div class="rounded-xl bg-white/50 p-6 shadow-sm ring-1 ring-inset ring-gray-900/5 dark:bg-black/10 dark:ring-white/10">
+<h3 class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Orders</h3>
+<div class="flex flex-col gap-4 sm:flex-row">
+<div class="flex-1">
+<p class="text-2xl font-bold text-primary">2 orders</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">in progress, est. delivery 1d 12h.</p>
+</div>
+<div class="h-40 flex-1 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAyWW7gHY3-CTrAzhJm1F9ICaIMh0XYG9sZ-7eIuVvo3tIzZ3qpeCz3XCCiJX_cuaOVah8OAHAhVMkyVWXecllqEihyuaEWus_YJIFK7tBuoBQOZB3mGF5-RE6iTBwwDHtv3Y6elrk_m-OxD6JrIOdQa87Tug0U_6TfJfIWFLCvEm6bbd2ZBnGbJ7FpYzScLsfSTp2lRL-lrBrvLs0qTpIUFm7alFYKa9sLureKHj6AojvbXkZ6YF6ncRpNl_qqZi-ThKoztEXDJho");'></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

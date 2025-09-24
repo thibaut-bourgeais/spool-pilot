@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SpoolPilot - User Profile</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="flex h-screen">
+<aside class="w-64 flex-shrink-0 bg-background-light/50 dark:bg-background-dark/50 border-r border-slate-200 dark:border-slate-800">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-slate-900 dark:text-white">SpoolPilot</h1>
+</div>
+</div>
+<nav class="mt-8 px-4">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 mt-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">print</span>
+<span class="font-medium">Printers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 mt-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">album</span>
+<span class="font-medium">Spools</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 mt-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">folder</span>
+<span class="font-medium">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 mt-2 rounded-lg bg-primary/20 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined !fill-1">group</span>
+<span class="font-medium">Users</span>
+</a>
+</nav>
+<div class="absolute bottom-0 w-64 p-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col overflow-hidden">
+<header class="flex items-center justify-end h-16 px-6 border-b border-slate-200 dark:border-slate-800 flex-shrink-0">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlw0QKppjcQPoziXuie4rYPJOVb-ph6kXk_G8qqS6TcgzJn3MTnlvphCAFJoMjcXulgW6OQCzdon4aZ56mycTDET_ZQVrVZyoXzgtdMoj7mRirniLX_yVe6QvlpKQcl4J2GehWr8lS6mST40pUot2PmGz0cHBcfukB24GV7Mbuuba-79WMjs359BZdPqn7Y2_wkLc84wGrkywb5RXBbdnLyk3XXGJoL716XgcBQPr2BM1WcP8_GHlyC4Q_E2xnZB8zX1UJli38jaI");'></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-8">
+<div class="max-w-4xl mx-auto">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">User Profile and Settings</h1>
+<div class="mt-8 bg-white dark:bg-slate-900/50 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-xl font-semibold text-slate-800 dark:text-slate-200">Personal Information</h2>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+<label class="text-slate-600 dark:text-slate-400 font-medium" for="name">Name</label>
+<input class="md:col-span-2 form-input w-full rounded-lg bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-primary focus:border-primary text-slate-800 dark:text-slate-200" id="name" type="text" value="Alex Doe"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+<label class="text-slate-600 dark:text-slate-400 font-medium" for="email">Email</label>
+<input class="md:col-span-2 form-input w-full rounded-lg bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-primary focus:border-primary text-slate-800 dark:text-slate-200" id="email" type="email" value="alex.doe@example.com"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+<label class="text-slate-600 dark:text-slate-400 font-medium" for="role">Role</label>
+<input class="md:col-span-2 form-input w-full rounded-lg bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-0 focus:border-slate-300 dark:focus:border-slate-700 text-slate-500 dark:text-slate-400 cursor-not-allowed" id="role" readonly="" type="text" value="Team Admin"/>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-white dark:bg-slate-900/50 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-xl font-semibold text-slate-800 dark:text-slate-200">Notification Preferences</h2>
+</div>
+<div class="p-6 space-y-4">
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="form-checkbox h-5 w-5 rounded text-primary bg-slate-200 dark:bg-slate-700 border-slate-300 dark:border-slate-600 focus:ring-primary/50" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-300">Email Notifications</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="form-checkbox h-5 w-5 rounded text-primary bg-slate-200 dark:bg-slate-700 border-slate-300 dark:border-slate-600 focus:ring-primary/50" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-300">In-App Notifications</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="form-checkbox h-5 w-5 rounded text-primary bg-slate-200 dark:bg-slate-700 border-slate-300 dark:border-slate-600 focus:ring-primary/50" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-300">SMS Notifications</span>
+</label>
+</div>
+</div>
+<div class="mt-8 bg-white dark:bg-slate-900/50 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-xl font-semibold text-slate-800 dark:text-slate-200">App Settings</h2>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+<label class="text-slate-600 dark:text-slate-400 font-medium" for="theme">Theme</label>
+<select class="md:col-span-2 form-select w-full rounded-lg bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-primary focus:border-primary text-slate-800 dark:text-slate-200" id="theme">
+<option value="dark">Dark</option>
+<option value="light">Light</option>
+<option value="system">System</option>
+</select>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="px-6 py-2.5 rounded-lg bg-primary text-white font-bold text-sm shadow-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+                Save Changes
+              </button>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

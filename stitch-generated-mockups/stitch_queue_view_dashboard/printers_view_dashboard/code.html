@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SpoolPilot Dashboard</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex h-screen flex-col">
+<header class="flex items-center justify-between border-b border-gray-200/10 dark:border-gray-700/50 px-6 py-3">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<svg class="h-8 w-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+</div>
+<h1 class="text-xl font-bold text-gray-900 dark:text-white">SpoolPilot</h1>
+</div>
+<nav class="hidden md:flex items-center gap-2">
+<a class="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-lg">list_alt</span>
+            Queue
+          </a>
+<a class="flex items-center gap-2 rounded-full bg-primary/10 dark:bg-primary/20 px-4 py-2 text-sm font-bold text-primary" href="#">
+<span class="material-symbols-outlined text-lg">print</span>
+            Printers
+          </a>
+<a class="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+            Stock
+          </a>
+<a class="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-lg">shopping_cart</span>
+            Orders
+          </a>
+<a class="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-lg">folder</span>
+            Files
+          </a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="rounded-full p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-500/10 dark:hover:bg-gray-400/10"><span class="material-symbols-outlined">notifications</span></button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAoDxANzdV_lC-x3AXgj-neYL3892W2U_QnkGeHcRT1ZFr5HkjuoISIEJsEBnp0y32AFwcPnYo7t8EkWzTKZTBg3REpdfyke7oI3qiHmW5IXnT3ElDM9fggp_eTH9nHm7mWR5AbjnriGG3y6oZaHGbL5eUroZO1egh7zNjs7lbIR5KTdsG8OKwjlGBQm-p269M6b2xNhusKyMogQGQBfRb0bq5H7qI71jH06278tNEnrDPxJPO1735yEy2VABIyhIDOepJKQdfI3fo");'></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-6 lg:p-8">
+<div class="mx-auto max-w-7xl">
+<div class="mb-6 flex items-center justify-between">
+<h2 class="text-3xl font-bold text-gray-900 dark:text-white">Printers</h2>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 rounded-lg bg-gray-500/10 px-4 py-2 text-sm font-semibold text-gray-700 dark:bg-gray-400/10 dark:text-gray-200">
+<span class="material-symbols-outlined text-lg">report</span>
+                Flag Issue
+              </button>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white">
+<span class="material-symbols-outlined text-lg">bookmark_add</span>
+                Reserve Printer
+              </button>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+<div class="flex flex-col overflow-hidden rounded-xl bg-white/50 dark:bg-black/10 shadow-sm transition-all hover:shadow-lg">
+<div class="relative">
+<div class="aspect-square w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1YZcsZppPLFIUFBFJrtT07L1OTUK688iWfvLwqUlqlHhD3ifZsZIwoENF3sT68i0H7lzZ0-9uSTQ6Td2ABYPGL-nnZnNLI3R7Sm85k3e6sWtSJ2FX_DLX3MGif7vANcSXPpFJHCfj50IUfCFBzNppCESmU_hO5RtxfEQT319YIxM9ckc7s5xbIMOGczO4oT5m22EGT9G98rcUkyq6-162TofGZ0CyTl8MxoLyWBOJDETYetEm728P3clu0y2A2civEqkKhtmZkKA");'></div>
+<div class="absolute top-2 right-2 rounded-full bg-green-500/80 px-2 py-1 text-xs font-bold text-white backdrop-blur-sm">Idle</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="font-bold text-gray-900 dark:text-white">Printer 1</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Filament: PLA</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">AMS: Yes</p>
+</div>
+</div>
+<div class="flex flex-col overflow-hidden rounded-xl bg-white/50 dark:bg-black/10 shadow-sm transition-all hover:shadow-lg">
+<div class="relative">
+<div class="aspect-square w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAirMWU4osfIVMhjvfuKYBae_ic3l4EEj70SdtwcnLRgopxu_ieYO_Bo8AxiqupYyO2dNTlp2CeKlj_fCUVAiaRegn3ZHp5JZzltf63KbThih9pHubLYFyLtXTeds-qfi4HS2I0BwW6wCUFVJMcxW6og8TW14j6OAXKA4uHpHxZPfhgevCDVwrYm8vnt7GiMl6lrEgo9FNOyRAIU4BFT00NCecGtg0OftUmKJXLXeqJEuVcLjeiJxlXeJPAE7KkElypu5kep91nQd8");'></div>
+<div class="absolute top-2 right-2 rounded-full bg-primary/80 px-2 py-1 text-xs font-bold text-white backdrop-blur-sm">Printing</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="font-bold text-gray-900 dark:text-white">Printer 2</h3>
+<p class="text-sm font-medium text-primary">Project X</p>
+<div class="mt-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="rounded-full bg-primary p-0.5 text-center text-xs font-medium leading-none text-white" style="width: 60%">60%</div>
+</div>
+<div class="mt-2 flex justify-between text-xs text-gray-500 dark:text-gray-400">
+<span>ETA: 2h 30m</span>
+<span>ABS, No AMS</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col overflow-hidden rounded-xl bg-white/50 dark:bg-black/10 shadow-sm transition-all hover:shadow-lg">
+<div class="relative">
+<div class="aspect-square w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsbc5nPmbW9o-IPYVbqI2Lgbz60U5tJPWZ6Xmxe5TpCPb2M3AfeYDEVXxJh6b7aMpSqZfkeky7u2oh0da8unfpKRC-rzwWFT928xjLCPosw2RJc5i1s3BVODtfBANNqincJxEQoEtwW9vDwpCBPCzJ0cHSwKXevdROgSpQ824FxD99OBz0YY2fxLMLrxdTUtRBsBZL7EhNy3v4vzUAU0B1YAnhq8T8QsAHIahx5Zlnuo0RX64qrto2wGiRJNb4TLo8RQTzwLAHyS8");'></div>
+<div class="absolute top-2 right-2 rounded-full bg-red-500/80 px-2 py-1 text-xs font-bold text-white backdrop-blur-sm">Error</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="font-bold text-gray-900 dark:text-white">Printer 3</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Filament: PETG</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">AMS: Yes</p>
+</div>
+</div>
+<div class="flex flex-col overflow-hidden rounded-xl bg-white/50 dark:bg-black/10 shadow-sm transition-all hover:shadow-lg">
+<div class="relative">
+<div class="aspect-square w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_OA2Ef-OTgpoyXtRGwcilxLbwho3chZWYlNjwMQzsv7qwjH7A0iBVq_Xobm8ABMvz9JBD4XufM5swQ5I5p3sLRoHU6YC1qAXZ7n_s53lj-xk0y9ZVvAfJrSZ2iE5ch1rbObuq6wtzvuxZRqhXVpx-GqjbGWuo7dpJ9Ncz7qCygs-IOG5lcfvyHVISrjmRWFussnM-H3j79gH3mYgs9dVQbilVgIwpkOmQXQsXZFAB5E5j9SrHIcSOEblBDbNTQfq3YYBcEF1jyJo");'></div>
+<div class="absolute top-2 right-2 rounded-full bg-yellow-500/80 px-2 py-1 text-xs font-bold text-gray-900 backdrop-blur-sm">Reserved</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="font-bold text-gray-900 dark:text-white">Printer 4</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Filament: TPU</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">AMS: No</p>
+</div>
+</div>
+<div class="flex flex-col overflow-hidden rounded-xl bg-white/50 dark:bg-black/10 shadow-sm transition-all hover:shadow-lg">
+<div class="relative">
+<div class="aspect-square w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqPkue3ACLWDv5G2yTXCAs8XW7wVgd4M-rqfGOokjkQQ2te3ZpiWYB2dxCwHYUp68x0FIQ3a4wDEzytN9KIe-W6X0SGqcrVFbdwD6YAs6i7Dak_Cn2JLtCMEJdrFLs8RCwnTS5lThEmeksa1gWfUQcnnbpBDFvfB_qjKT_UmSPGKJW3aDEvCdksjAAczN_uGCDVPMmN4NtIpP6gsyN7MEUouCIhkw5R2rgd6pMtA0HqbFORd5B1Rw9JV9Ci6tQ3gRVTQvpgNERW60");'></div>
+<div class="absolute top-2 right-2 rounded-full bg-green-500/80 px-2 py-1 text-xs font-bold text-white backdrop-blur-sm">Idle</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="font-bold text-gray-900 dark:text-white">Printer 5</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Filament: Nylon</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">AMS: Yes</p>
+</div>
+</div>
+<div class="flex flex-col overflow-hidden rounded-xl bg-white/50 dark:bg-black/10 shadow-sm transition-all hover:shadow-lg">
+<div class="relative">
+<div class="aspect-square w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBf94bevOAmaR8MPYmjd0iXTBXTR0kXnRd1WWb6o8n90CMoeqW8NG6-Sjq5krS1l46ZAwDc6ptkeHKWZ89iqSQWGw-mC1OGw3iJRHlW9pO1lVEcOFPukq_V4l1O-a4fEUVP9qH0H_g_H6pOIZDqiWzJA0LHL5fe6lf559oP3RLfNv_Hud33EB9L_hSfOPLhkD6ROV79087guT2z3FpzUdRfiA0-vQWPvUkU4EipUJ4vEF64h_GTpefdnOyFky4LM8j2BGCxI3nx9fw");'></div>
+<div class="absolute top-2 right-2 rounded-full bg-primary/80 px-2 py-1 text-xs font-bold text-white backdrop-blur-sm">Printing</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="font-bold text-gray-900 dark:text-white">Printer 6</h3>
+<p class="text-sm font-medium text-primary">Project Y</p>
+<div class="mt-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="rounded-full bg-primary p-0.5 text-center text-xs font-medium leading-none text-white" style="width: 85%">85%</div>
+</div>
+<div class="mt-2 flex justify-between text-xs text-gray-500 dark:text-gray-400">
+<span>ETA: 45m</span>
+<span>ASA, No AMS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
